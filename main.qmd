@@ -1,15 +1,25 @@
+
 ---
-title: "Habits 2"
-author: "John Doe"
-format: revealjs
+title: "Kubernetes"
+subtitle: "https://github.com/olevitt/formations"
+author:
+    - name: "Olivier Levitt"
+      email: "olivier.levitt@gmail.com"
+      url: https://github.com/olevitt/formations
+format:
+  revealjs:
+    chalkboard: true
+    theme: dark
+    progress: true
+    history: true
+    menu:
+      side: left
+      width: wide
+    slide-number: true
+from: markdown+emoji
 ---
 
-## Getting up
-
-- Turn off alarm
-- Get out of bed
-
-## Going to sleep
-
-- Get in bed
-- Count sheep
+{{< include kubernetes/leplan.md >}}
+{{< include kubernetes/pourquoi.md >}}
+{{< include kubernetes/conteneurisation.md >}}
+{{< include kubernetes/docker.md >}}
