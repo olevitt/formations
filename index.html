@@ -7,11 +7,11 @@
 <link href="main_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="main_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="main_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="main_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <meta name="author" content="John Doe">
-  <title>Habits 2</title>
+  <meta name="author" content="Olivier Levitt">
+  <title>Kubernetes</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -34,6 +34,8 @@
   <link href="main_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="main_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="main_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="main_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="main_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="main_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -321,41 +323,220 @@
     }
   </style>
 </head>
-<body class="quarto-light">
+<body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Habits 2</h1>
+  <h1 class="title">Kubernetes</h1>
+  <p class="subtitle">https://github.com/olevitt/formations</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-John Doe 
+<a href="https://github.com/olevitt/formations">Olivier Levitt</a> 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:olivier.levitt@gmail.com">olivier.levitt@gmail.com</a>
 </div>
 </div>
 </div>
 
 </section>
-<section id="getting-up" class="slide level2">
-<h2>Getting up</h2>
+<section id="le-plan" class="slide level2">
+<h2>Le plan</h2>
+<!-- .slide: class="slide" -->
 <ul>
-<li>Turn off alarm</li>
-<li>Get out of bed</li>
+<li>Pourquoi ?</li>
+<li>La conteneurisation</li>
+<li>Jouons avec Docker</li>
+<li>Orchestration de conteneurs</li>
+<li>Jouons avec un cluster Kubernetes</li>
+</ul>
+<p>Bonus :</p>
+<ul>
+<li>Installation d’un cluster Kubernetes</li>
+<li>Administration d’un cluster Kubernetes</li>
 </ul>
 </section>
-<section id="going-to-sleep" class="slide level2">
-<h2>Going to sleep</h2>
+<section id="environnement-de-travail" class="slide level2">
+<h2>Environnement de travail</h2>
+<!-- .slide: class="slide" -->
 <ul>
-<li>Get in bed</li>
-<li>Count sheep</li>
+<li>Option Local (Linux de préférence, Mac / Windows ok)</li>
+<li>Option Cloud (compte fourni ou compte perso)</li>
+</ul>
+</section>
+<section>
+<section id="pourquoi" class="title-slide slide level1 center">
+<h1>Pourquoi ?</h1>
+<!-- .slide: class="slide" -->
+
+<img data-src="kubernetes/img/tycoon.jpg" class="r-stretch quarto-figure-center"><p class="caption">Datacenter tycoon</p></section>
+<section id="tldr" class="slide level2">
+<h2>tl;dr</h2>
+<!-- .slide: class="slide" -->
+<ul>
+<li>(Mainframes <span class="emoji" data-emoji="older_man">👴</span>)</li>
+<li>Serveurs dédiés</li>
+<li>Machines virtuelles<br>
+</li>
+<li>Orchestration de machines virtuelles</li>
+<li>Conteneurisation<br>
+</li>
+<li>Orchestration de conteneurs</li>
+</ul>
+</section></section>
+<section>
+<section id="conteneurisation" class="title-slide slide level1 center">
+<h1>Conteneurisation</h1>
+<!-- .slide: class="slide" -->
+<p><a href="https://github.com/olevitt/tutoriels/blob/master/conteneurisation/principes/README.md">DIY</a></p>
+</section>
+<section id="cest-quoi" class="slide level2">
+<h2>C’est quoi ?</h2>
+<!-- .slide: class="slide" -->
+<ul>
+<li>Lancer des processus isolés</li>
+<li>Utilisation de fonctionnalités du noyau linux<br>
+</li>
+<li>Image vs conteneur</li>
+</ul>
+</section>
+<section id="vm-vs-conteneurisation" class="slide level2">
+<h2>VM vs Conteneurisation</h2>
+<!-- .slide: class="slide" -->
+<p><img data-src="kubernetes/img/vm.png" style="width:45.0%"> <img data-src="kubernetes/img/conteneurs.png" style="width:45.0%"></p>
+</section></section>
+<section>
+<section id="docker" class="title-slide slide level1 center">
+<h1>Docker</h1>
+<!-- .slide: class="slide" -->
+<p><a href="https://github.com/olevitt/tutoriels/blob/master/docker/hello/README.md">DIY</a><br>
+<a href="https://github.com/olevitt/tutoriels/blob/master/docker/avance/README.md">DIY avancé</a></p>
+</section>
+<section id="cest-quoi-1" class="slide level2">
+<h2>C’est quoi ?</h2>
+<!-- .slide: class="slide" -->
+<ul>
+<li>Une implémentation de la conteneurisation</li>
+<li>Niveau micro : management local</li>
+</ul>
+<p>Pitié, ne confondez pas :</p>
+<ul>
+<li><b>Docker engine</b> : moteur</li>
+<li>Docker desktop : packaging incluant docker engine + goodies</li>
+<li>Docker hub : <b>un</b> registre d’image (le plus gros)<br>
+</li>
+<li>Docker compose : orchestration locale <span class="emoji" data-emoji="older_man">👴</span></li>
+<li>Docker swarm : orchestration multi-machines <span class="emoji" data-emoji="coffin">⚰️</span></li>
+</ul>
+</section>
+<section id="installation" class="slide level2">
+<h2>Installation</h2>
+<!-- .slide: class="slide" -->
+<ul>
+<li>Linux : docker engine ou docker desktop</li>
+<li>Mac / Windows : docker desktop</li>
+<li>https://docs.docker.com/engine/install/</li>
+</ul>
+</section>
+<section id="démo" class="slide level2">
+<h2>Démo</h2>
+<!-- .slide: class="slide" -->
+</section>
+<section id="lancement-de-conteneurs" class="slide level2">
+<h2>Lancement de conteneurs</h2>
+<!-- .slide: class="slide" -->
+<pre><code>docker run hello-world</code></pre>
+<pre><code>docker run -it ubuntu</code></pre>
+<pre><code>docker run -it ubuntu /bin/bash</code></pre>
+<pre><code>docker run -p 8888:80 nginx</code></pre>
+<pre><code>docker run --env POSTGRES_PASSWORD=secret -p 5432:5432 postgres:16</code></pre>
+<pre><code>docker run --env POSTGRES_PASSWORD=secret -p 5432:5432 -d postgres:16</code></pre>
+</section>
+<section id="management-local-de-conteneurs" class="slide level2">
+<h2>Management (local) de conteneurs</h2>
+<!-- .slide: class="slide" -->
+<pre><code>docker ps</code></pre>
+<pre><code>docker logs ID</code></pre>
+<pre><code>docker kill ID</code></pre>
+<pre><code>docker exec -it ID COMMAND</code></pre>
+</section>
+<section id="création-dimages" class="slide level2">
+<h2>Création d’images</h2>
+<!-- .slide: class="slide" -->
+<p>Dockerfile :</p>
+<pre><code>FROM ubuntu
+RUN apt-get update
+RUN apt-get -y install cowsay
+ENTRYPOINT ["/usr/games/cowsay"]</code></pre>
+<p>Docker build :</p>
+<pre><code>docker build -t toto .</code></pre>
+<p>Docker enjoy :</p>
+<pre><code>docker run toto</code></pre>
+</section>
+<section id="publication-dimages" class="slide level2">
+<h2>Publication d’images</h2>
+<!-- .slide: class="slide" -->
+<p>Nom d’une image docker :</p>
+<pre><code>registry/organisation/nomimage:tag</code></pre>
+<pre><code>postgres
+postgres:12  
+inseefrlab/onyxia-ui
+gcr.io/distroless/base-debian10:nonroot</code></pre>
+<pre><code>docker tag toto monpseudodockerhub/titi</code></pre>
+<pre><code>docker login  
+docker push monpseudodockerhub/titi</code></pre>
+</section>
+<section id="tp-1-hello-docker" class="slide level2">
+<h2>TP 1 : Hello docker</h2>
+<!-- .slide: class="slide" -->
+<ul>
+<li>Installer docker<br>
+</li>
+<li>Valider l’installation de Docker en lançant <code>hello-world</code></li>
+<li>Lancer un conteneur <code>nginx</code> (https://hub.docker.com/_/nginx)<br>
+</li>
+<li>Faire une requête HTTP sur le serveur <code>nginx</code><br>
+</li>
+<li>Se connecter à chaud dans le <code>nginx</code>, supprimer le fichier /usr/share/nginx/html/index.html<br>
+</li>
+<li>Refaire une requête HTTP sur le serveur <code>nginx</code> : constater<br>
+</li>
+<li>Tuer le conteneur, le recréer, refaire une requête</li>
+</ul>
+</section>
+<section id="tp-2-mon-image-docker" class="slide level2">
+<h2>TP 2 : Mon image Docker</h2>
+<!-- .slide: class="slide" -->
+<ul>
+<li>Créer une image Docker, en y mettant ce qui vous fait plaisir<br>
+</li>
+<li>Lancer des conteneurs de cette image<br>
+</li>
+<li>Publier votre image (soit sur dockerhub en créant un compte, soit sur ttl.sh soit sur le registre d’un ami (cf TP3))</li>
+<li>Diffuser le nom de votre image et épatez vos amis !</li>
+</ul>
+</section>
+<section id="tp-3-aller-plus-loin" class="slide level2">
+<h2>TP 3 : Aller plus loin</h2>
+<!-- .slide: class="slide" -->
+<ul>
+<li>En utilisant l’image <a href="https://hub.docker.com/_/registry">registry</a>, mettre à disposition un registre public<br>
+</li>
+<li>Jeter un oeil aux volumes Docker : https://docs.docker.com/storage/volumes/</li>
+<li>En se baladant sur <a href="https://hub.docker.com">Dockerhub</a>, lancer les conteneurs de vos logiciels préférés<br>
+</li>
+<li>Exemples : (<a href="https://hub.docker.com/r/codercom/code-server">VSCode</a>, <a href="https://hub.docker.com/r/pengbai/docker-supermario/">Infinite mario</a> …)</li>
+<li>Jeter un oeil à <a href="https://github.com/docker/dockercraft">Dockercraft</a>, pour le fun</li>
 </ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -366,6 +547,7 @@ John Doe
   <script src="main_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="main_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="main_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="main_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="main_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -386,7 +568,8 @@ John Doe
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"width":"wide"},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -407,7 +590,7 @@ John Doe
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -557,7 +740,7 @@ John Doe
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
