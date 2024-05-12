@@ -23,3 +23,6 @@ from: markdown+emoji
 {{< include kubernetes/pourquoi.md >}}
 {{< include kubernetes/conteneurisation.md >}}
 {{< include kubernetes/docker.md >}}
+{{< include kubernetes/orchestration.md >}}
+{{< include kubernetes/kubernetes.md >}}
+{{< include kubernetes/kubernetes2.md >}}

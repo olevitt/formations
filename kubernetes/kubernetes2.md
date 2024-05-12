@@ -63,39 +63,19 @@ kubectl exec -it PODID -- COMMAND
 ## TP : matos (Choix du cluster)
 <!-- .slide: class="slide" -->  
 
-<b>Option cloud, compte temporaire</b>  
+<b>Option cloud, cluster managé temporaire</b>  
 
-Utiliser le cluster partagé :  
-* https://console.cloud.google.com/kubernetes/list?project=lebacasable  
+Utiliser le kubeconfig fourni
+ 
 
 <b>Option cloud, compte perso</b>  
 
 * Créer un cluster, minimum 1 noeud  `e2-small`  
 
-Exemples de scripts terraform : https://bitbucket.org/olevitt/formations/src/master/kubernetes/terraform/kubernetes  
-
 <b>Option local</b>  
 
-* Linux : https://k3s.io/  
-* Windows / MacOS : :(
-
-----
-
-## TP : matos (Récupération des credentials)
-<!-- .slide: class="slide" -->  
-
-<b>Option cloud</b>  
-
-* Aller dans la liste des clusters : https://console.cloud.google.com/kubernetes/list  
-* Choisir le cluster  
-* Récupérer l'IP de l'APIServer (Endpoint : )  
-* Ouvrir le cloudshell (ou installer `gcloud`)
-* Récupérer l'access toke (`gcloud auth print-access-token`)
-
-<b>Option local</b>  
-
-* Dépend de la distribution utilisée  
-* Pour k3s : configuration déjà faite (`k3s kubectl`)
+* [Cluster fourni par Docker Desktop](https://docs.docker.com/desktop/kubernetes/)
+* Ou, installation d'un cluster via une distribution ([k3s](https://k3s.io/), [Minikube](https://minikube.sigs.k8s.io/docs/start/) ...)   
 
 ----
 

@@ -18,7 +18,7 @@
 ## Architecture
 <!-- .slide: class="slide" -->  
 
-![](img/archi_k8s.png)  
+![](kubernetes/img/archi_k8s.png)  
 
 ----
 
