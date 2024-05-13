@@ -166,4 +166,4 @@ docker push monpseudodockerhub/titi
 * En utilisant l'image [registry](https://hub.docker.com/_/registry), mettre à disposition un registre public  
 * Jeter un oeil aux volumes Docker : https://docs.docker.com/storage/volumes/
 * En se baladant sur [Dockerhub](https://hub.docker.com), lancer les conteneurs de vos logiciels préférés  
-* Exemples : ([VSCode](https://hub.docker.com/r/codercom/code-server), [Infinite mario](https://hub.docker.com/r/pengbai/docker-supermario/) ...)
+* Exemples : ([VSCode](https://hub.docker.com/r/codercom/code-server), [Wordpress](https://hub.docker.com/_/wordpress), [NextCloud](https://hub.docker.com/_/nextcloud) ...)
